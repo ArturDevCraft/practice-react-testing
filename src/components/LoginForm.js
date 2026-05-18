@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import CatchError from './CatchError';
 
 function LoginForm(props) {
 	const userDefault = {
@@ -15,6 +14,8 @@ function LoginForm(props) {
 
 	const [user, setUser] = useState(userDefault);
 	const [error, setError] = useState(null);
+	const [toThrow, setToThrow] = useState(null);
+	if (toThrow) throw toThrow;
 
 	function checkValue(value) {
 		if (value.length <= 3) {
@@ -38,7 +39,9 @@ function LoginForm(props) {
 	}
 
 	function throwError() {
-		throw new Error('Incorrect data!');
+		const err = new Error('Incorrect data!');
+		setToThrow(err);
+		// throw err;
 	}
 
 	function handleSubmit(e) {
