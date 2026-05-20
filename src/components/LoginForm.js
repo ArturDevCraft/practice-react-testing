@@ -31,7 +31,7 @@ function LoginForm(props) {
 				setError(null);
 			} catch (err) {
 				setError(
-					`Pole ${field}, jest za krótkie - wpowadź więcej niż 3 litery`,
+					`Pole ${field}, jest za krótkie - wprowadź więcej niż 3 litery`,
 				);
 			}
 			setUser({ ...user, [field]: { value, error: '' } });
